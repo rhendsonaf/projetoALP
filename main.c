@@ -37,80 +37,82 @@ int main() {
         "(15) Escrever a matriz C em um arquivo\n"
         "(16) Sair"
                "\n"
-
         );
-        scanf("%d", &op);
+        scanf("%d\n", &op);
 
     switch(op){
         case 1:
-            printf("===> Quantidade de linhas de A:");
-            scanf("%d", &matrixA.rows);
-            printf("\n===> Quantidade de colunas de A:");
-            scanf("%d", &matrixA.columns);
-            printf("Dimensões da Matriz A definidas, para começar a preenche-la pressione 3 ou 5\n");
+            printf("Insira a quantidade de linhas de A: ");
+            scanf("%d\n", &matrixA.rows);
+            printf("Insira a quantidade de colunas de A: ");
+            scanf("%d\n", &matrixA.columns);
+            printf("As dimensões da matriz A foram definidas.\n");
             break;
         case 2:
-            printf("===> Quantidade de linhas de B:");
+            printf("Insira a quantidade de linhas de B: \n");
             scanf("%d", &matrixB.rows);
-            printf("\n===> Quantidade de colunas de B:");
+            printf("Insira a quantidade de linhas de B: \n");
             scanf("%d", &matrixB.columns);
-            printf("Dimensões da Matriz A definidas, para começar a preenche-la pressione 4 ou 6\n");
+            printf("As dimensões da matriz B foram definidas.\n");
             break;
         case 3:
-            rand_Matriz(matxA, matrixA);
+            matrixRand(matxA, matrixA);
             break;
         case 4:
-            rand_Matriz(matxB, matrixB);
+            matrixRand(matxB, matrixB);
             break;
         case 5:
-            manu_Matriz(matxA, matrixA);
+            matrixFill(matxA, matrixA);
             break;
         case 6:
-            manu_Matriz(matxB, matrixB);
+            matrixFill(matxB, matrixB);
             break;
         case 7:
             if(matrixA.rows == matrixB.rows && matrixA.columns == matrixB.columns){
-            matrixC = somaMatriz(matxA, matxB, matxC, matrixA);
-        }else{
-            printf("A dimensões das matrizes são diferentes entre si, tente redefinir seus tamanhos.");
-        }
+                matrixC = matrixSum(matxA, matxB, matxC, matrixA);
+            }
+            else {
+                printf("As dimensões das matrizes A e B são diferentes, operação inválida.");
+            }
             break;
         case 8:
             if(matrixA.rows == matrixB.rows && matrixA.columns == matrixB.columns){
-            matrixC = subMatriz(matxA, matxB, matxC, matrixA);
-        }else{
-            printf("A dimensões das matrizes são diferentes entre si, tente redefinir seus tamanhos.");
-        }
+                matrixC = matrixSub(matxA, matxB, matxC, matrixA);
+            }
+            else {
+            printf("As dimensões das matrizes A e B são diferentes, operação inválida.");
+            }
             break;
         case 9:
-            if(matrixA.columns == matrixB.rows){
-                matrixC = multMatriz(matxA, matxB, matxC, matrixA, matrixB);
-            }else{
-                printf("A multiplicação não pode ser executada, edite as dimensões das matrizes e tente novamente");
+            if(matrixB.rows == matrixA.columns){
+                matrixC = matrixMult(matxA, matxB, matxC, matrixA, matrixB);
+            }
+            else {
+                printf("O número de linhas de B é diferente do número de colunas de A.");
             }
             break;
         case 10:
-            imprime_Matriz(matxA, matrixA);
+            matrixPrint(matxA, matrixA);
             break;
         case 11:
-            imprime_Matriz(matxB, matrixB);
+            matrixPrint(matxB, matrixB);
             break;
         case 12:
-            imprime_Matriz(matxC, matrixC);
+            matrixPrint(matxC, matrixC);
             break;
         case 13:
-            setaMatArquivo(matxA, matrixA);
+            readMatrix(matxA, matrixA);
             break;
         case 14:
-            setaMatArquivo(matxB, matrixB);
+            readMatrix(matxB, matrixB);
             break;
         case 15:
-            escreveMatC(matxC, matrixC);
+            writeMatrix(matxC, matrixC);
             break;
         case 16:
             exit(0);
         default :
-            printf ("Valor invalido!\n");
+            printf ("Operação inválida, digite um número de 1 a 16.\n");
     }
 }
     return 0;
