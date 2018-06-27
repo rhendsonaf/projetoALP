@@ -19,7 +19,7 @@ int main() {
     int op = 0;
 
     while(op != 16){
-        printf("PROGRAMA DE MANIPULACAO DE MATRIZES\n"
+        printf("\n\nPROGRAMA DE MANIPULACAO DE MATRIZES\n"
         "(1) Definir o tamanho da matriz A\n"
         "(2) Definir o tamanho da matriz B\n"
         "(3) Preencher a matriz A com valores aleatórios\n"
@@ -32,20 +32,20 @@ int main() {
         "(10) Imprimir matriz A\n"
         "(11) Imprimir matriz B\n"
         "(12) Imprimir matriz C\n"
-        "(13) Ler a mtriz A de um arquivo\n"
-        "(14) Ler a mtriz B de um arquivo\n"
+        "(13) Ler a matriz A de um arquivo\n"
+        "(14) Ler a matriz B de um arquivo\n"
         "(15) Escrever a matriz C em um arquivo\n"
         "(16) Sair"
                "\n"
         );
-        scanf("%d\n", &op);
+        scanf("%d", &op);
 
     switch(op){
         case 1:
             printf("Insira a quantidade de linhas de A: ");
-            scanf("%d\n", &matrixA.rows);
+            scanf("%d", &matrixA.rows);
             printf("Insira a quantidade de colunas de A: ");
-            scanf("%d\n", &matrixA.columns);
+            scanf("%d", &matrixA.columns);
             printf("As dimensões da matriz A foram definidas.\n");
             break;
         case 2:
