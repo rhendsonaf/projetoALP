@@ -14,7 +14,7 @@ void matrixFill(float mat[][LENGHT_MAX], struct matriz m){
     for(int i = 0; i < m.rows; i++){
         for(int j = 0; j < m.columns; j++){
             printf("\nInsira o valor da linha %d e coluna %d: \n", i+1, j+1);
-            scanf("%f\n", &mat[i][j]);
+            scanf("%f", &mat[i][j]);
         }
     }
     printf("A Matriz foi preenchida com sucesso.\n");
